@@ -16,17 +16,17 @@ class ShanWanGamepadInput:
     def __init__(self) -> None:
         self.analog_stick_left = Vector3f()
         self.analog_stick_right = Vector3f()
-        self.button_l1: Optional[float]
-        self.button_l2: Optional[float]
-        self.button_r1: Optional[float]
-        self.button_r2: Optional[float]
-        self.button_x: Optional[bool]
-        self.button_a: Optional[bool]
-        self.button_b: Optional[bool]
-        self.button_y: Optional[bool]
-        self.button_select: Optional[bool]
-        self.button_start: Optional[bool]
-        self.button_home: Optional[bool]
+        self.button_l1 = None
+        self.button_l2 = None
+        self.button_r1 = None
+        self.button_r2 = None
+        self.button_x = None
+        self.button_a = None
+        self.button_b = None
+        self.button_y = None
+        self.button_select = None
+        self.button_start = None
+        self.button_home = None
 
 
 class Joystick(object):
