@@ -1,3 +1,8 @@
+## Hardware Operation
+- The controller sends your stick and button inputs as a 2.4 GHz radio signal. 
+- The car’s receiver picks up that signal, passes it to its microcontroller, and adjusts throttle and steering. 
+- Since all SEA:ME teams share the same 2.4 GHz channel, controllers can sometimes interfere with each other.
+
 ## Code Level Work
 
 ## class ShanWanGamepad
