@@ -46,11 +46,33 @@ while True:
 
 
 ## read_data()
+
 ### gamepad.py (piracer library)
 
 ```
 def read_data(self) -> ShanWanGamepadInput:
 	_, button_number, button_state, _, axis_number, axis_val = super(ShanWanGamepad, self).poll()
-```
 
-### 
+	if axis_number == 0:
+		self.gamepad_input.analog_stick_left.x = axis_val
+	elif axis_number == 1:
+		self.gamepad_input.analog_stick_left.y = -axis_val
+	elif button_number == 10:
+		self.gamepad_input.analog_stick_left.z = button_state
+	...
+```
+-  read_data uses super().poll() / joystick.poll() internally
+
+### poll()
+```
+def poll(self) -> Tuple[Optional[str], Optional[int], Optional[bool], Optional[str], Optional[int], Optional[float]]:
+	evbuf = self.jsdev.read(8)
+```
+- performs blocking read operation
+- blocks until device returns any input (sent by the controller)
+- values are sent in byte stream
+
+```
+	tval, value, typev, number = struct.unpack('IhBB', evbuf)
+```
+- unpack the value into struct and continues to return meaningful value
